@@ -1,0 +1,8 @@
+FROM docker.io/jc21/nginx-proxy-manager:latest
+
+RUN . /opt/certbot/bin/activate \
+    && pip install --no-cache-dir \
+        certbot-dns-cloudflare \
+    && deactivate
+
+USER root
