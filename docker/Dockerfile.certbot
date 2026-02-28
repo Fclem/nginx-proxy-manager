@@ -5,4 +5,6 @@ RUN . /opt/certbot/bin/activate \
         "certbot-dns-cloudflare>=3.0.0" \
     && deactivate
 
-USER root
+RUN groupadd -g 1001 npm && useradd -r -u 1001 -g npm -s /bin/bash npm
+
+USER 1001
